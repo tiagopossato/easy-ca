@@ -66,6 +66,7 @@ template "${BIN_DIR}/templates/client.tpl" "conf/${SAFE_NAME}.client.conf"
 openssl req -new -nodes \
             -config conf/${SAFE_NAME}.client.conf \
             -keyout private/${SAFE_NAME}.client.key \
+            -subj "/C=${CA_CERT_C}/ST=${CA_CERT_ST}/L=${CA_CERT_L}/O=${CA_CERT_O}/OU=${CA_CERT_OU}/CN=${CLIENT_NAME}" \
             -out csr/${SAFE_NAME}.client.csr
 chmod 0400 private/${SAFE_NAME}.client.key
 
